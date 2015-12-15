@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1446269871">
+  <component name="DataSourceManagerImpl" format="xml" hash="934803956">
     <data-source source="LOCAL" name="HSQLDB (Local) -" uuid="b9756051-d325-4848-9d5d-3bdfc14d55e0">
       <driver-ref>hsqldb.local</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.hsqldb.jdbc.JDBCDriver</jdbc-driver>
       <jdbc-url>jdbc:hsqldb:file:root</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="H2 - h2" uuid="a98e161e-c158-44bd-b318-6fdc07d96067">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:$PROJECT_DIR$/../../database/h2</jdbc-url>
     </data-source>
   </component>
 </project>

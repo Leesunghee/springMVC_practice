@@ -9,7 +9,7 @@ public abstract class UserDao {
         Connection connection = makeConnection();
 
 
-        PreparedStatement statement = connection.prepareStatement("insert into public.users(id, name, password) values (?, ?, ?)");
+        PreparedStatement statement = connection.prepareStatement("insert into PUBLIC.USERS(id, name, password) values (?, ?, ?)");
         statement.setString(1, user.getId());
         statement.setString(2, user.getName());
         statement.setString(3, user.getPassword());
@@ -27,7 +27,7 @@ public abstract class UserDao {
     public User get(String id) throws ClassNotFoundException, SQLException {
         Connection connection = makeConnection();
 
-        PreparedStatement statement = connection.prepareStatement("select * from public.users where id = ?");
+        PreparedStatement statement = connection.prepareStatement("select * from PUBLIC.USERS where id = ?");
         statement.setString(1, id);
 
         ResultSet resultSet = statement.executeQuery();

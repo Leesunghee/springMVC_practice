@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class NUserDao extends UserDao {
     @Override
     public Connection makeConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("org.hsqldb.jdbcDriver");
-        return DriverManager.getConnection("jdbc:hsqldb:file:root");
+        Class.forName("org.h2.Driver");
+        return DriverManager.getConnection("jdbc:h2:/Users/sunghee/Development/database/h2", "sa", "");
     }
 }

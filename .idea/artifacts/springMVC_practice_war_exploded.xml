@@ -1,13 +1,19 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="springMVC_practice:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/springMVC_practice_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/board</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="springMVC_practice/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="springMVC_practice" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.190" />
+        </element>
       </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/board/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="springMVC_practice/web/Web" />
     </root>
   </artifact>
 </component>
