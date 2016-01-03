@@ -1,5 +1,8 @@
 package toby.spring.book.chapter01;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.sql.SQLException;
 
 /**
@@ -15,7 +18,13 @@ public class UserDaoTest {
 //
 //        toby.spring.book.chapter01.UserDao userDao = new toby.spring.book.chapter01.UserDao(connectionMaker);
 
-        UserDao userDao = new DaoFactory().userDao();
+//        UserDao userDao = new DaoFactory().userDao();
+
+        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+
+        UserDao userDao = context.getBean("userDao", UserDao.class);
+
+
 
         User user = new User();
         user.setId("realwunz");
