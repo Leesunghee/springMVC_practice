@@ -1,3 +1,5 @@
+package toby.spring.book.chapter01;
+
 import java.sql.SQLException;
 
 /**
@@ -7,7 +9,13 @@ public class UserDaoTest {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-        UserDao userDao = new NUserDao();
+        //toby.spring.book.chapter01.UserDao userDao = new toby.spring.book.chapter01.NUserDao();
+
+//        toby.spring.book.chapter01.ConnectionMaker connectionMaker = new toby.spring.book.chapter01.DConnectionMaker();
+//
+//        toby.spring.book.chapter01.UserDao userDao = new toby.spring.book.chapter01.UserDao(connectionMaker);
+
+        UserDao userDao = new DaoFactory().userDao();
 
         User user = new User();
         user.setId("realwunz");

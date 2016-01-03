@@ -1,3 +1,5 @@
+package toby.spring.book.chapter01;
+
 /**
  * Created by sunghee on 2015. 12. 10..
  */

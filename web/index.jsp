@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: sunghee
+  toby.spring.book.chapter01.User: sunghee
   Date: 2015. 12. 6.
   Time: 오후 9:43
   To change this template use File | Settings | File Templates.

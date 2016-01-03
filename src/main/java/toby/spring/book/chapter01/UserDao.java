@@ -1,12 +1,26 @@
+package toby.spring.book.chapter01;
+
 import java.sql.*;
 
 /**
  * Created by sunghee on 2015. 12. 10..
  */
-public abstract class UserDao {
+public class UserDao {
+
+    private ConnectionMaker connectionMaker;
+
+    public UserDao() {
+    }
+
+    public UserDao(ConnectionMaker connectionMaker) {
+        //simpleConnectionMaker = new toby.spring.book.chapter01.SimpleConnectionMaker();
+        //connectionMaker = new toby.spring.book.chapter01.DConnectionMaker();
+        this.connectionMaker = connectionMaker;
+    }
 
     public void add(User user) throws ClassNotFoundException, SQLException {
-        Connection connection = makeConnection();
+        //Connection connection = makeConnection();
+        Connection connection = connectionMaker.makeConnection();
 
 
         PreparedStatement statement = connection.prepareStatement("insert into PUBLIC.USERS(id, name, password) values (?, ?, ?)");
@@ -22,10 +36,11 @@ public abstract class UserDao {
 
     }
 
-    public abstract Connection makeConnection() throws ClassNotFoundException, SQLException;
+//    public abstract Connection makeConnection() throws ClassNotFoundException, SQLException;
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        Connection connection = makeConnection();
+        //Connection connection = makeConnection();
+        Connection connection = connectionMaker.makeConnection();
 
         PreparedStatement statement = connection.prepareStatement("select * from PUBLIC.USERS where id = ?");
         statement.setString(1, id);

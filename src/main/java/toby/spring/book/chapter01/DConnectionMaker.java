@@ -1,11 +1,14 @@
+package toby.spring.book.chapter01;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Created by sunghee on 2015. 12. 10..
+ * Created by sunghee on 2016. 1. 3..
  */
-public class NUserDao extends UserDao {
+public class DConnectionMaker implements ConnectionMaker {
+
     @Override
     public Connection makeConnection() throws ClassNotFoundException, SQLException {
         Class.forName("org.h2.Driver");
