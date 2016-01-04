@@ -7,7 +7,12 @@ import java.sql.*;
  */
 public class UserDao {
 
-    private ConnectionMaker connectionMaker;
+    private ConnectionMaker connectionMaker; //초기에 설정하면 사용 중에는 바뀌지 않는 읽기전용 인스턴스 변순
+
+    //매번 새로운 값으로 바뀌는 정보를 담은 인스턴스 변수 심각한 문제가 발생한다.
+    //싱글톤으로 만들어져서 멀티스레드 환경에서 사용하면 심각한 문제가 발생한다
+    private Connection connection;
+    private User user;
 
     public UserDao() {
     }
@@ -40,7 +45,7 @@ public class UserDao {
 
     public User get(String id) throws ClassNotFoundException, SQLException {
         //Connection connection = makeConnection();
-        Connection connection = connectionMaker.makeConnection();
+        this.connection = connectionMaker.makeConnection();
 
         PreparedStatement statement = connection.prepareStatement("select * from PUBLIC.USERS where id = ?");
         statement.setString(1, id);
@@ -48,15 +53,15 @@ public class UserDao {
         ResultSet resultSet = statement.executeQuery();
         resultSet.next();
 
-        User user = new User();
-        user.setId(resultSet.getString("id"));
-        user.setName(resultSet.getString("name"));
-        user.setPassword(resultSet.getString("password"));
+        this.user = new User();
+        this.user.setId(resultSet.getString("id"));
+        this.user.setName(resultSet.getString("name"));
+        this.user.setPassword(resultSet.getString("password"));
 
         resultSet.close();
         statement.close();
         connection.close();
 
-        return user;
+        return this.user;
     }
 }

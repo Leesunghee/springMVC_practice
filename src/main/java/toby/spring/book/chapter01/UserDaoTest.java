@@ -12,7 +12,8 @@ public class UserDaoTest {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-        //toby.spring.book.chapter01.UserDao userDao = new toby.spring.book.chapter01.NUserDao();
+        //1. 1장 초난감 DAO
+//        toby.spring.book.chapter01.UserDao userDao = new toby.spring.book.chapter01.NUserDao();
 
 //        toby.spring.book.chapter01.ConnectionMaker connectionMaker = new toby.spring.book.chapter01.DConnectionMaker();
 //
@@ -26,18 +27,32 @@ public class UserDaoTest {
 
 
 
-        User user = new User();
-        user.setId("realwunz");
-        user.setName("이성희");
-        user.setPassword("4542");
+//        User user = new User();
+//        user.setId("realwunz");
+//        user.setName("이성희");
+//        user.setPassword("4542");
+//
+//        userDao.add(user);
+//
+//        System.out.println("user 등록 성공");
+//
+//        User user2 = userDao.get("realwunz");
+//        System.out.println(user2.getName());
+//        System.out.println(user2.getPassword());
+//        System.out.println(user2.getId() + "조회 성공");
 
-        userDao.add(user);
+        //2. 동일성 비교
+        DaoFactory factory = new DaoFactory();
+        UserDao dao1 = factory.userDao();
+        UserDao dao2 = factory.userDao();
 
-        System.out.println("user 등록 성공");
+        System.out.println(dao1);
+        System.out.println(dao2);
 
-        User user2 = userDao.get("realwunz");
-        System.out.println(user2.getName());
-        System.out.println(user2.getPassword());
-        System.out.println(user2.getId() + "조회 성공");
+        UserDao dao3 = context.getBean("userDao", UserDao.class);
+        UserDao dao4 = context.getBean("userDao", UserDao.class);
+
+        System.out.println(dao3);
+        System.out.println(dao4);
     }
 }
