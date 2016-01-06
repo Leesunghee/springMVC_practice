@@ -17,9 +17,14 @@ public class UserDao {
     public UserDao() {
     }
 
-    public UserDao(ConnectionMaker connectionMaker) {
-        //simpleConnectionMaker = new toby.spring.book.chapter01.SimpleConnectionMaker();
-        //connectionMaker = new toby.spring.book.chapter01.DConnectionMaker();
+    //생성자 DI 제거
+//    public UserDao(ConnectionMaker connectionMaker) {
+//        //simpleConnectionMaker = new toby.spring.book.chapter01.SimpleConnectionMaker();
+//        //connectionMaker = new toby.spring.book.chapter01.DConnectionMaker();
+//        this.connectionMaker = connectionMaker;
+//    }
+
+    public void setConnectionMaker(ConnectionMaker connectionMaker) {
         this.connectionMaker = connectionMaker;
     }
 
