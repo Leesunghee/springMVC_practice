@@ -2,6 +2,8 @@ package toby.spring.book.chapter01;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.sql.SQLException;
 
@@ -21,7 +23,9 @@ public class UserDaoTest {
 
 //        UserDao userDao = new DaoFactory().userDao();
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+//        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+
+        ApplicationContext context = new GenericXmlApplicationContext("toby/spring/book/chapter01/applicationContext.xml");
 
         UserDao userDao = context.getBean("userDao", UserDao.class);
 
